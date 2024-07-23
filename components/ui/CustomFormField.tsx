@@ -9,11 +9,19 @@ import {
     FormLabel,
     FormMessage,
  } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Control } from "react-hook-form"
+import { FormFieldType } from "./forms/PatientForm"
 
-const CustomFormField = () => {
+interface CustomProps {
+    control: Control <any>,
+    fieldType: FormFieldType
+}
+
+const CustomFormField = ({ control, fieldType }: CustomProps) => {
   return (
     <FormField
-    control={form.control}
+    control={control}
     name="username"
     render={({ field }) => (
       <FormItem>
