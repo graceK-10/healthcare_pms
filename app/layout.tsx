@@ -12,8 +12,8 @@ const fontSans =  Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "CarePulse",
-  description: "A Healthcare Management System",
+  title: "Synergy Wellness Health",
+  description: "Book Your Doctors Appointment with us",
 };
 
 export default function RootLayout({
