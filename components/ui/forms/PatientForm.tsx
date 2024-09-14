@@ -4,9 +4,9 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form"; //Allows us to define our form
 import { z } from "zod"; //Used for form validation
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import CustomFormField from "../CustomFormField";
+import CustomFormField, { FormFieldType } from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
 import { UserFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
@@ -22,10 +22,8 @@ export enum FormFieldType {
   SKELETON = "skeleton",
 }
 
-
-
-const PatientForm = () => {
-  const router = useRouter;
+ export const PatientForm = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false)
 
   const form = useForm<z.infer<typeof UserFormValidation>>({
@@ -37,7 +35,6 @@ const PatientForm = () => {
     },
   });
 
-  
   async function onSubmit({ name, email, phone }: z.infer<typeof UserFormValidation>) { // 2. Define a submit handler.
     setIsLoading(true);
 
@@ -50,6 +47,8 @@ const PatientForm = () => {
     } catch (error) {
       console.log(error);
     }
+
+    setIsLoading(false);
   }
 
   return (
