@@ -8,12 +8,12 @@ export const {
     NEXT_PUBLIC_ENDPOINT: ENDPOINT
 } = process.env;
 
-const client = new sdk.Client();
+const client = new sdk.Client()
 
-client
-    .setEndpoint(ENDPOINT!)
-    .setProject(PROJECT_ID!)
-    .setKey(API_KEY!);
+// client
+.setEndpoint(process.env.NEXT_PUBLIC_ENDPOINT!) // Ensure this is set
+.setProject(process.env.PROJECT_ID!) // Ensure this is set
+.setKey(process.env.API_KEY!); // Ensure this is set
 
 export const databases = new sdk.Databases(client);
 export const storage = new sdk.Storage(client);

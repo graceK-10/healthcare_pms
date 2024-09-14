@@ -8,7 +8,7 @@ export interface Patient extends Models.Document {
   birthDate: Date;
   gender: Gender;
   height: string;
-  weight string;
+  // weight string;
   address: string;
   province: string;
   occupation: string;
